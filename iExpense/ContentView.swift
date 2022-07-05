@@ -7,18 +7,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct secondView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .background(.red)
+        Text("Second View")
     }
 }
 
 
 
+struct contentView: View {
+    @State private var showingSheet = false
+    
+    var body: some View{
+        Button("Second View"){
+            showingSheet.toggle()
+        }
+        .sheet(isPresented: $showingSheet){
+            secondView()
+        }
+    }
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        contentView()
     }
 }
