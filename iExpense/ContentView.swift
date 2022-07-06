@@ -8,10 +8,23 @@
 import SwiftUI
 
 struct secondView: View {
+    @State private var showingSheet1 = false
     var body: some View {
-        Text("Second View")
+        ZStack{
+            Button("Show First View 🦊"){
+                showingSheet1.toggle()
+            }
+            .sheet(isPresented: $showingSheet1){
+                contentView()
+                
+            }
+            
+        }
+        
     }
 }
+
+
 
 
 
@@ -19,7 +32,7 @@ struct contentView: View {
     @State private var showingSheet = false
     
     var body: some View{
-        Button("Second View"){
+        Button("Show Second View 🐶"){
             showingSheet.toggle()
         }
         .sheet(isPresented: $showingSheet){
@@ -34,3 +47,6 @@ struct ContentView_Previews: PreviewProvider {
         contentView()
     }
 }
+
+
+
