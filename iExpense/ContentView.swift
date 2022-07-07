@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+
+
+
+//First View
+
+struct firstView : View{
+    @Environment(\.dismiss) var dismiss
+    var body: some View{
+        ZStack{
+            Color.blue
+                .ignoresSafeArea()
+            Button("Dismiss"){
+                dismiss()
+            }
+        }
+    }
+}
+
+
+// Second View
 struct secondView: View {
     @State private var showingSheet1 = false
     var body: some View {
@@ -29,13 +49,15 @@ struct secondView: View {
 }
 
 
+//Main View
+
 struct contentView: View {
     @State private var showingSheet = false
     
     var body: some View{
         ZStack{
             Color.purple
-            .ignoresSafeArea()
+                .ignoresSafeArea()
             
             Button("Show Second View 🐶"){
                 showingSheet.toggle()
@@ -46,6 +68,7 @@ struct contentView: View {
         }
     }
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {
