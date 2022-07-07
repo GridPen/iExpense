@@ -11,6 +11,8 @@ struct secondView: View {
     @State private var showingSheet1 = false
     var body: some View {
         ZStack{
+            Color.orange
+                .ignoresSafeArea()
             Button("Show First View 🦊"){
                 showingSheet1.toggle()
             }
@@ -19,24 +21,28 @@ struct secondView: View {
                 
             }
             
+            
         }
+        
         
     }
 }
-
-
-
 
 
 struct contentView: View {
     @State private var showingSheet = false
     
     var body: some View{
-        Button("Show Second View 🐶"){
-            showingSheet.toggle()
-        }
-        .sheet(isPresented: $showingSheet){
-            secondView()
+        ZStack{
+            Color.purple
+            .ignoresSafeArea()
+            
+            Button("Show Second View 🐶"){
+                showingSheet.toggle()
+            }
+            .sheet(isPresented: $showingSheet){
+                secondView()
+            }
         }
     }
 }
