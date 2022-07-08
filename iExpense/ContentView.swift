@@ -14,12 +14,18 @@ import SwiftUI
 
 struct firstView : View{
     @Environment(\.dismiss) var dismiss
+    @State private var showSheet2 = false
     var body: some View{
         ZStack{
-            Color.blue
+            Color.gray
                 .ignoresSafeArea()
             Button("Dismiss"){
                 dismiss()
+//                showSheet2.toggle()
+                
+            }
+            .sheet(isPresented: $showSheet2){
+                contentView()
             }
         }
     }
@@ -37,7 +43,7 @@ struct secondView: View {
                 showingSheet1.toggle()
             }
             .sheet(isPresented: $showingSheet1){
-                contentView()
+                firstView()
                 
             }
             
